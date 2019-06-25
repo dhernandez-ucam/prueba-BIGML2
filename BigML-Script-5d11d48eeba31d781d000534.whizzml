@@ -1,0 +1,5 @@
+(define dataset-id (create-and-wait-dataset {"source" source}))
+(define anomaly-id (create-and-wait-anomaly {"dataset" dataset-id}))
+(define input {"Open" 275 "High" 300 "Low" 250})
+(define score-id (create-and-wait-anomalyscore {"anomaly" anomaly-id "input_data" input}))
+(get (fetch score-id) "score")
